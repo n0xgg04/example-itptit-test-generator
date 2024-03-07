@@ -1,0 +1,14 @@
+{
+  "name": "midterm-cpp",
+  "version": "1.0.0",
+  "description": "Tàu chiến Alpha C715 nổi tiếng là băng đảng khét tiếng chuyên đánh cắp tài nguyên, vũ khí của các hành tinh xung quanh. Alice, một nhà bác học tài ba được quân nổi loạn cứu sau thảm gia vũ trụ năm 2326. Sau khi được cứu, Alice trở thành một trợ thủ đắc lực, trung thành của tàu chiến.",
+  "main": "index.js",
+  "scripts": {
+    "generate": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "itptit-test-generator": "^1.0.5"
+  }
+}
