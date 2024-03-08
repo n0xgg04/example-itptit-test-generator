@@ -1,28 +1,34 @@
 import {
   createTestCase,
+  FakeName,
   Int,
+  Loop,
   TestCase,
+  UseSubGeneration,
   WordArray,
 } from "itptit-test-generator";
+import { fakeName } from "itptit-test-generator/dist/src/fake/name.list.js";
 
 type int = number;
+
+class RatNhieuTen extends TestCase {
+  @FakeName
+  ten: string;
+
+  template = `$ten\n`;
+}
 
 class SubTest extends TestCase {
   @Int(1, 100)
   n: int;
 
-  @WordArray("$n", 1, 10)
-  array: number[];
+  @Loop("$n")
+  @UseSubGeneration(RatNhieuTen)
+  ten() {}
 
-  template = `$n\n$array`;
+  template = `$n\n$ten`;
 }
 
-/*
-3
-1 2
-3 4
-2 5
- */
 createTestCase({
   amount: 20,
   inputDir: "input",
