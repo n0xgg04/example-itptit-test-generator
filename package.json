@@ -5,11 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "generate": "ts-node index.ts"
+    "start": "npx tsx index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "itptit-test-generator": "^1.1.3"
+    "itptit-test-generator": "^1.1.3",
+    "tsx": "^4.7.1"
   }
 }
