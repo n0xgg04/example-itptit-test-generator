@@ -1,43 +1,33 @@
 import {
   createTestCase,
   Int,
-  Loop,
-  NumberArray,
   TestCase,
-  UseSubGeneration,
+  WordArray,
 } from "itptit-test-generator";
 
+type int = number;
+
 class SubTest extends TestCase {
-  @Int(1, 5)
-  d: number;
+  @Int(1, 100)
+  n: int;
 
-  @Int(1, 5)
-  g: number;
-  template = `$d $g`;
-}
-
-export class TestCaseInput extends TestCase {
-  @Int(1, 5)
-  s: number;
-
-  @Int(1, 5)
-  b: number;
-
-  @NumberArray("$s", 0, 5)
+  @WordArray("$n", 1, 10)
   array: number[];
 
-  @Loop("$b")
-  @UseSubGeneration(SubTest)
-  anh() {}
-
-  template = `$s $b\n$array\n$anh`;
+  template = `$n\n$array`;
 }
 
+/*
+3
+1 2
+3 4
+2 5
+ */
 createTestCase({
   amount: 20,
   inputDir: "input",
   outputDir: "output",
-  template: TestCaseInput,
+  template: SubTest,
   solutionPath: "solve.cpp",
   inputFilenameTemplate: "dauvao$i.inp",
   outputFilenameTemplate: "daura$i.out",
